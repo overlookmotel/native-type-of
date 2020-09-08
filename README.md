@@ -77,6 +77,13 @@ Object.setPrototypeOf(map, Array.prototype);
 typeOf(map) === 'Map';
 ```
 
+It also ignores custom `[Symbol.toStringTag]` properties.
+
+```js
+const obj = { [Symbol.toStringTag]: 'Gizmo' };
+typeOf(obj) === 'Object';
+```
+
 ### Known issues
 
 There are a few rare cases where native type cannot be correctly determined:

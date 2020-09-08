@@ -2,7 +2,6 @@
 [![Build Status](https://img.shields.io/travis/overlookmotel/native-type-of/master.svg)](http://travis-ci.org/overlookmotel/native-type-of)
 [![Dependency Status](https://img.shields.io/david/overlookmotel/native-type-of.svg)](https://david-dm.org/overlookmotel/native-type-of)
 [![Dev dependency Status](https://img.shields.io/david/dev/overlookmotel/native-type-of.svg)](https://david-dm.org/overlookmotel/native-type-of)
-[![Greenkeeper badge](https://badges.greenkeeper.io/overlookmotel/native-type-of.svg)](https://greenkeeper.io/)
 [![Coverage Status](https://img.shields.io/coveralls/overlookmotel/native-type-of/master.svg)](https://coveralls.io/r/overlookmotel/native-type-of)
 
 # Accurately determine native type of values

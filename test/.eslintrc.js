@@ -1,0 +1,18 @@
+/* --------------------
+ * native-type-of module
+ * Tests ESLint config
+ * ------------------*/
+
+'use strict';
+
+// Exports
+
+module.exports = {
+	extends: [
+		'@overlookmotel/eslint-config-jest'
+	],
+	rules: {
+		'import/no-unresolved': ['error', {ignore: ['^native-type-of$']}],
+		'node/no-missing-require': ['error', {allowModules: ['native-type-of']}]
+	}
+};

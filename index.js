@@ -1,0 +1,10 @@
+/* --------------------
+ * native-type-of module
+ * Entry point
+ * ------------------*/
+
+'use strict';
+
+// Exports
+
+module.exports = {};

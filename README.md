@@ -50,6 +50,7 @@ typeOf(new FinalizationRegistry(() => {})) === 'FinalizationRegistry';
 typeOf(new String('')) === 'String';
 typeOf(new Number(123)) === 'Number';
 typeOf(new Boolean(true)) === 'Boolean';
+typeOf(Object(BigInt(100)) === 'BigInt';
 
 // Errors
 typeOf(new Error()) === 'Error';

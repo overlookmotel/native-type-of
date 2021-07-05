@@ -25,9 +25,6 @@ for (const name of Object.getOwnPropertyNames(global)) {
 
 globals.sort(([name1], [name2]) => (name1 > name2 ? 1 : -1));
 
-// Filter out `Symbol` as is not constructed with `new`
-const globalCtors = globals.filter(([type]) => type !== 'Symbol');
-
 const initArgs = {
 	Promise: [() => {}],
 	DataView: [new ArrayBuffer(8)],
@@ -39,6 +36,7 @@ const initArgs = {
 function createInstance(type) {
 	if (type === 'Function') return function() {};
 	if (type === 'BigInt') return Object(BigInt(100));
+	if (type === 'Symbol') return Object(Symbol('x'));
 	const ctor = global[type];
 	return new ctor(...(initArgs[type] || [])); // eslint-disable-line new-cap
 }
@@ -58,7 +56,7 @@ describe('Primitives', () => {
 });
 
 describe('Objects', () => {
-	describe.each(globalCtors)('%s', (type) => {
+	describe.each(globals)('%s', (type) => {
 		it('correctly identified', () => {
 			const instance = createInstance(type);
 			expect(typeOf(instance)).toBe(type);
@@ -95,7 +93,7 @@ describe('Objects', () => {
 
 					describe('instance of', () => {
 						it.each(
-							globalCtors.filter(([protoType]) => (
+							globals.filter(([protoType]) => (
 								// Objects with prototype `new TypeError()` are identified as 'TypeError'
 								// (same applies for other Array subclass prototypes)
 								// https://github.com/overlookmotel/native-type-of/issues/3

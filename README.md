@@ -1,5 +1,5 @@
 [![NPM version](https://img.shields.io/npm/v/native-type-of.svg)](https://www.npmjs.com/package/native-type-of)
-[![Build Status](https://img.shields.io/travis/overlookmotel/native-type-of/master.svg)](http://travis-ci.org/overlookmotel/native-type-of)
+[![Build Status](https://img.shields.io/github/workflow/status/overlookmotel/native-type-of/Test.svg)](https://github.com/overlookmotel/native-type-of/actions)
 [![Dependency Status](https://img.shields.io/david/overlookmotel/native-type-of.svg)](https://david-dm.org/overlookmotel/native-type-of)
 [![Dev dependency Status](https://img.shields.io/david/dev/overlookmotel/native-type-of.svg)](https://david-dm.org/overlookmotel/native-type-of)
 [![Coverage Status](https://img.shields.io/coveralls/overlookmotel/native-type-of/master.svg)](https://coveralls.io/r/overlookmotel/native-type-of)

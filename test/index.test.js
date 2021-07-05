@@ -25,8 +25,8 @@ for (const name of Object.getOwnPropertyNames(global)) {
 
 globals.sort(([name1], [name2]) => (name1 > name2 ? 1 : -1));
 
-// Filter out globals which are not constructed with `new`
-const globalCtors = globals.filter(([type]) => !['Symbol', 'BigInt'].includes(type));
+// Filter out `Symbol` as is not constructed with `new`
+const globalCtors = globals.filter(([type]) => type !== 'Symbol');
 
 const initArgs = {
 	Promise: [() => {}],
@@ -38,6 +38,7 @@ const initArgs = {
 
 function createInstance(type) {
 	if (type === 'Function') return function() {};
+	if (type === 'BigInt') return Object(BigInt(100));
 	const ctor = global[type];
 	return new ctor(...(initArgs[type] || [])); // eslint-disable-line new-cap
 }

@@ -12,7 +12,6 @@ module.exports = {
 		'@overlookmotel/eslint-config-jest'
 	],
 	rules: {
-		'import/no-unresolved': ['error', {ignore: ['^native-type-of$']}],
-		'node/no-missing-require': ['error', {allowModules: ['native-type-of']}]
+		'import/no-unresolved': ['error', {ignore: ['^native-type-of$']}]
 	}
 };

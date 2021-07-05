@@ -11,9 +11,7 @@ const typeOf = require('native-type-of');
 // Tests
 
 const hasOwnProp = Object.prototype.hasOwnProperty,
-	functionToString = Function.prototype.toString,
-	// eslint-disable-next-line node/no-unsupported-features/es-builtins
-	bigIntSupported = typeof BigInt !== 'undefined';
+	functionToString = Function.prototype.toString;
 
 const globals = [];
 for (const name of Object.getOwnPropertyNames(global)) {
@@ -52,8 +50,7 @@ describe('Primitives', () => {
 		['boolean', true],
 		['number', 123],
 		['symbol', Symbol('abc')],
-		// eslint-disable-next-line node/no-unsupported-features/es-builtins
-		...(bigIntSupported ? [['bigint', BigInt(100)]] : [])
+		['bigint', BigInt(100)]
 	])('%s', (type, val) => {
 		expect(typeOf(val)).toBe(type);
 	});

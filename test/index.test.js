@@ -23,7 +23,7 @@ for (const name of Object.getOwnPropertyNames(global)) {
 	globals.push([name, ctor]);
 }
 
-globals.sort(([, name1], [, name2]) => (name1 > name2 ? 1 : -1));
+globals.sort(([name1], [name2]) => (name1 > name2 ? 1 : -1));
 
 // Filter out globals which are not constructed with `new`
 const globalCtors = globals.filter(([type]) => !['Symbol', 'BigInt'].includes(type));

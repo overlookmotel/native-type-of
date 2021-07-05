@@ -33,7 +33,8 @@ const initArgs = {
 	Promise: [() => {}],
 	DataView: [new ArrayBuffer(8)],
 	FinalizationRegistry: [() => {}],
-	WeakRef: [{}]
+	WeakRef: [{}],
+	AggregateError: [[]]
 };
 
 function createInstance(type) {

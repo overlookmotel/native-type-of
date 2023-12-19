@@ -37,6 +37,7 @@ function createInstance(type) {
 	if (type === 'Function') return function() {};
 	if (type === 'BigInt') return Object(BigInt(100));
 	if (type === 'Symbol') return Object(Symbol('x'));
+	if (type === 'MessagePort') return new MessageChannel().port1;
 	const ctor = global[type];
 	return new ctor(...(initArgs[type] || [])); // eslint-disable-line new-cap
 }

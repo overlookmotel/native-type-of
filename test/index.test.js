@@ -110,7 +110,7 @@ describe('Objects', () => {
 		}
 	});
 
-	describe('Arguments', () => { // eslint-disable-line jest/lowercase-name
+	describe('Arguments', () => { // eslint-disable-line jest/prefer-lowercase-title
 		it('correctly identified', () => {
 			const instance = (function() { return arguments; }()); // eslint-disable-line prefer-rest-params
 			expect(typeOf(instance)).toBe('Arguments');

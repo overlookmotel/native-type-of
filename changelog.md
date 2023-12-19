@@ -1,5 +1,39 @@
 # Changelog
 
+## 2.0.0
+
+Breaking changes:
+
+* Drop support for Node v12 + v14 + v16
+* Drop support for Node v18.0.0
+
+Features:
+
+* Support `MessagePort`
+
+Tests:
+
+* Don't support `MessageChannel`
+
+Dev:
+
+* CI run tests on Node v18 + v20 + v21
+* CI run lint and coverage on Node v20
+* Use NPM v10 for development
+* Clean up after `cover` NPM script even if fails
+* Run ESLint in parallel
+* Run tests on all CPU cores on CI
+* Remove installing NPM from CI task [improve]
+* Update dev dependencies
+* Update Github Actions scripts
+
+Docs:
+
+* Change versioning policy
+* Fix Github Actions badge [fix]
+* Remove David badges from README
+* Update license year
+
 ## 1.1.0
 
 Minor:

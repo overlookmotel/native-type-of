@@ -100,6 +100,7 @@ There are a few rare cases where native type cannot be correctly determined:
 * `typeOf( Object.setPrototypeOf( Promise.resolve(), Array.prototype ) ) === 'Object'` ([issue](https://github.com/overlookmotel/native-type-of/issues/1))
 * `typeOf( Object.setPrototypeOf( new Error(), Map.prototype ) ) === 'Object'` ([issue](https://github.com/overlookmotel/native-type-of/issues/2))
 * `typeOf( Object.setPrototypeOf( {}, TypeError.prototype ) ) === 'TypeError'` ([issue](https://github.com/overlookmotel/native-type-of/issues/3))
+* `typeOf( new MessageChannel() ) === 'Object'` ([issue](https://github.com/overlookmotel/native-type-of/issues/59))
 
 These are the only known cases where the result is inaccurate.
 

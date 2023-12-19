@@ -25,6 +25,10 @@ for (const name of Object.getOwnPropertyNames(global)) {
 
 globals.sort(([name1], [name2]) => (name1 > name2 ? 1 : -1));
 
+// Detecting `MessageChannel`s is not supported
+// https://github.com/overlookmotel/native-type-of/issues/59
+const testGlobals = globals.filter(([name]) => name !== 'MessageChannel');
+
 const initArgs = {
 	Promise: [() => {}],
 	DataView: [new ArrayBuffer(8)],
@@ -57,7 +61,7 @@ describe('Primitives', () => {
 });
 
 describe('Objects', () => {
-	describe.each(globals)('%s', (type) => {
+	describe.each(testGlobals)('%s', (type) => {
 		it('correctly identified', () => {
 			const instance = createInstance(type);
 			expect(typeOf(instance)).toBe(type);

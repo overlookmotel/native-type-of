@@ -1,5 +1,5 @@
 [![NPM version](https://img.shields.io/npm/v/native-type-of.svg)](https://www.npmjs.com/package/native-type-of)
-[![Build Status](https://img.shields.io/github/workflow/status/overlookmotel/native-type-of/Test.svg)](https://github.com/overlookmotel/native-type-of/actions)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/overlookmotel/native-type-of/test.yml?branch=master)](https://github.com/overlookmotel/native-type-of/actions)
 [![Coverage Status](https://img.shields.io/coveralls/overlookmotel/native-type-of/master.svg)](https://coveralls.io/r/overlookmotel/native-type-of)
 
 # Accurately determine native type of values

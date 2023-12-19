@@ -10,7 +10,7 @@
 npm install native-type-of
 ```
 
-Requires NodeJS v18 or later.
+Requires NodeJS v18.1.0 or later.
 
 ## Usage
 

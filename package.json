@@ -40,7 +40,7 @@
     "cover-cleanup": "rm -rf coverage"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=18.1.0"
   },
   "readmeFilename": "README.md",
   "license": "MIT"

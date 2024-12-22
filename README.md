@@ -52,6 +52,8 @@ typeOf(new WeakMap()) === 'WeakMap';
 typeOf(new WeakRef({})) === 'WeakRef';
 typeOf(new FinalizationRegistry(() => {})) === 'FinalizationRegistry';
 typeOf(new MessageChannel().port1) === 'MessagePort';
+typeOf(new URL('http://foo.com')) === 'URL';
+typeOf(new URL('http://foo.com?x=1').searchParams) === 'URLSearchParams';
 
 // Boxed primitives
 typeOf(new String('')) === 'String';

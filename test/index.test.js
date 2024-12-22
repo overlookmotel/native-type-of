@@ -19,7 +19,10 @@ for (const name of Object.getOwnPropertyNames(global)) {
 	const ctor = global[name];
 	if (typeof ctor !== 'function') continue;
 	if (!hasOwnProp.call(ctor, 'prototype')) continue;
-	if (!functionToString.call(ctor).includes('[native code]')) continue;
+	if (
+		name !== 'URL' && name !== 'URLSearchParams'
+		&& !functionToString.call(ctor).includes('[native code]')
+	) continue;
 	globals.push([name, ctor]);
 }
 
@@ -42,6 +45,8 @@ function createInstance(type) {
 	if (type === 'BigInt') return Object(BigInt(100));
 	if (type === 'Symbol') return Object(Symbol('x'));
 	if (type === 'MessagePort') return new MessageChannel().port1;
+	if (type === 'URL') return new URL('http://foo.com/');
+	if (type === 'URLSearchParams') return new URL('http://foo.com/?x=1').searchParams;
 	const ctor = global[type];
 	return new ctor(...(initArgs[type] || [])); // eslint-disable-line new-cap
 }
@@ -102,7 +107,9 @@ describe('Objects', () => {
 								// Objects with prototype `new TypeError()` are identified as 'TypeError'
 								// (same applies for other Array subclass prototypes)
 								// https://github.com/overlookmotel/native-type-of/issues/3
-								type !== 'Object' || !isErrorSubclass(protoType)
+								// Objects with prototype `new URLSearchParams()` are identified as `URLSearchParams`
+								// on Node v18 (which they kind of are on that version of Node)
+								type !== 'Object' || (!isErrorSubclass(protoType) && protoType !== 'URLSearchParams')
 							))
 						)('%s', (instanceType) => {
 							const instance = createInstance(type);
